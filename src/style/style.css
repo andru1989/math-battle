@@ -1,0 +1,13 @@
+body {
+  font-family: "Noteworthy", "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.extra-large {
+  width: 100px;
+  height: 100px;
+}
+
+.extra-large i {
+  font-size: 50px;
+  line-height: 100px;
+}

@@ -1,20 +1,21 @@
+// PENDING TO REMOVE COMPONENT
 import React, { Component } from 'react';
 import { Modal } from 'react-materialize';
 
 export default class MaterializeModal extends Component {
   constructor(props) {
     super(props)
-    this.state = ({ openModal: false})
+    this.state = ({ activeModal: false})
   }
 
   openModal() {
-    this.setState({ openModal: true })
+    this.setState({ activeModal: true })
   }
 
   render() {
     return (
       <div>
-        <Modal header='Game Over' fixedFooter id='score_modal' open={this.state.openModal}>
+        <Modal header='Game Over' fixedFooter id='score_modal' open={this.state.activeModal}>
           <div className="center-align">
             <h4>Score: {this.props.score}</h4>
             <div className="row">

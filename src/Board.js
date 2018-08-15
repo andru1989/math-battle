@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Countdown from './Countdown';
 import MaterializeModal from './Modal';
 import { ProgressBar, Button, Icon } from 'react-materialize';
-import { OPERATIONS, RESULT_TYPES } from './Types';
+//import { OPERATIONS, RESULT_TYPES } from './Types';
+import { RESULT_TYPES } from './Types';
 
 class Board extends Component {
   constructor(props) {
@@ -21,8 +22,7 @@ class Board extends Component {
   }
 
   randomOperation() {
-    let operation = OPERATIONS[Math.floor(Math.random() * OPERATIONS.length)];
-
+    //let operation = OPERATIONS[Math.floor(Math.random() * OPERATIONS.length)];
     let n1 = Math.floor(Math.random() * 10) + 1
     let n2 = Math.floor(Math.random() * 10) + 1
 
@@ -61,12 +61,13 @@ class Board extends Component {
     this.setState({ secondsRemaining: this.state.secondsRemaining - 1 });
     if (this.state.secondsRemaining <= 0) {
       this.refs.countdown.stopTimer();
-      this.refs.modal.openModal();
+      //this.refs.modal.openModal();
+      this.props.history.push({ pathname: '/game_over', state: { score: this.state.score } })
     }
   }
 
   addSeconds() {
-    const maxSecondsRemaining = 20;
+    const maxSecondsRemaining = 15;
     let secondsToAdd = 5;
     let nextSecondsRemaining = this.state.secondsRemaining + secondsToAdd
     if (nextSecondsRemaining > maxSecondsRemaining) {
@@ -122,18 +123,20 @@ class Board extends Component {
                   {this.state.message}
                 </h1>
 
-                <ProgressBar progress={this.state.secondsRemaining*100/20} />
+                <ProgressBar progress={this.state.secondsRemaining*100/15} />
               </div>
+
+
 
               <div className="card-action center-align">
                 <div className="row">
                   <div className="col s6 right-align">
-                    <Button floating large className='green' waves='light' onClick={() => this.checkOperation(true)}>
+                    <Button floating className='teal darken-2 extra-large' waves='light' onClick={() => this.checkOperation(true)}>
                       <Icon right>done</Icon>
                     </Button>
                   </div>
                   <div className="col s6 left-align">
-                    <Button floating large className='red' waves='light' onClick={() => this.checkOperation(false)}>
+                    <Button floating className='red extra-large' waves='light' onClick={() => this.checkOperation(false)}>
                       <Icon right>close</Icon>
                     </Button>
                   </div>
