@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Button, Icon } from 'react-materialize';
 
 class GameOver extends Component {
@@ -18,9 +19,11 @@ class GameOver extends Component {
             <div className="card-action center-align">
               <div className="row">
                 <div className="col s12">
-                  <Button floating className='teal darken-2 extra-large' waves='light' node='a' href="/board">
-                    <Icon right>refresh</Icon>
-                  </Button>
+                  <Link to="/board">
+                    <Button floating className='teal darken-2 extra-large' waves='light'>
+                      <Icon right>refresh</Icon>
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>
