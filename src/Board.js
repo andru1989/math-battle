@@ -15,6 +15,7 @@ class Board extends Component {
       operation: '',
       result: 0
     })
+    debugger
   }
 
   componentDidMount() {
@@ -125,8 +126,6 @@ class Board extends Component {
 
                 <ProgressBar progress={this.state.secondsRemaining*100/15} />
               </div>
-
-
 
               <div className="card-action center-align">
                 <div className="row">
